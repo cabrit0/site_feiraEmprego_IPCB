@@ -27,5 +27,6 @@ window.onload = function() {
     loadComponent('sobre', './components/sobre.html');
     loadComponent('programa', './components/programa.html');
     loadComponent('empresas', './components/empresas.html');
+    loadComponent('localizacao', './components/localizacao.html');
     loadComponent('footer', './components/footer.html');
 };
