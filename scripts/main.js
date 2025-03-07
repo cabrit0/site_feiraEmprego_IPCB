@@ -1,3 +1,4 @@
+
 // Menu Mobile
 function initMenu() {
     const menuBtn = document.getElementById('menuBtn');
@@ -5,7 +6,17 @@ function initMenu() {
 
     if (menuBtn) {
         menuBtn.addEventListener('click', () => {
+            // Alterna a visibilidade do menu
             mobileMenu.classList.toggle('hidden');
+
+            // Animação de deslizar para baixo/para cima
+            if (!mobileMenu.classList.contains('hidden')) {
+                mobileMenu.classList.remove('-translate-y-full');
+                mobileMenu.classList.add('translate-y-0');
+            } else {
+                mobileMenu.classList.remove('translate-y-0');
+                mobileMenu.classList.add('-translate-y-full');
+            }
         });
     }
 }
@@ -76,7 +87,9 @@ function initSlider() {
     startAutoSlide();
 }
 
-// Inicializa o slider 
+// Inicializa o slider e o menu
 document.addEventListener('DOMContentLoaded', () => {
     initSlider();
+    initMenu(); 
+    setActiveLink(); 
 });

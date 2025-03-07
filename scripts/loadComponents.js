@@ -10,6 +10,12 @@ function loadComponent(componentId, filePath) {
             // Insere o conteúdo do componente no DOM
             document.getElementById(componentId).innerHTML = data;
 
+            // Executa o JavaScript específico para o componente
+            if (componentId === 'navigation') {
+                initMenu(); // Inicializa o menu mobile
+                setActiveLink(); // Destaca o link ativo
+            }
+
             // Inicializa o slider após carregar o componente horizontalScroll
             if (componentId === 'horizontalScroll') {
                 initSlider();

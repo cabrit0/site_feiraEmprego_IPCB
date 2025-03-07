@@ -1,5 +1,11 @@
+/* styles/main.css */
 html, body {
     height: 100%;
+}
+
+/* Ajuste de transição no menu mobile */
+#mobileMenu {
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
 }
 
 #cardsContainer {
@@ -23,4 +29,9 @@ html, body {
 
 [data-index].bg-gray-300 {
     background-color: #d1d5db; 
+}
+
+/* Efeito de hover no menu desktop */
+.nav-link:hover span:last-child {
+    width: 100%;
 }
