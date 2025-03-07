@@ -1,0 +1,22 @@
+#cardsContainer {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.card {
+    flex: 0 0 100%; 
+    max-width: 100%;
+}
+
+/* Estilo para os pontos de navegação */
+[data-index] {
+    transition: background-color 0.3s ease;
+}
+
+[data-index].bg-blue-900 {
+    background-color: #1e3a8a; 
+}
+
+[data-index].bg-gray-300 {
+    background-color: #d1d5db; 
+}
