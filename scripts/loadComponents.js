@@ -35,8 +35,8 @@ function loadPageComponents() {
     const path = window.location.pathname;
 
     // Componentes comuns a todas as páginas
-    loadComponent('navigation', '../components/navigation.html');
-    loadComponent('footer', '../components/footer.html');
+    loadComponent('navigation', './components/navigation.html');
+    loadComponent('footer', './components/footer.html');
 
     // Componentes específicos para a página inicial
     if (path.endsWith('index.html') || path.endsWith('/')) {
@@ -51,6 +51,8 @@ function loadPageComponents() {
     // Componentes específicos para a página programaFull.html
     if (path.endsWith('programaFull.html')) {
         console.log('Carregando componentes específicos para programaFull.html'); // Debug
+        loadComponent('navigation', '../components/navigation.html');
+        loadComponent('footer', '../components/footer.html');
     }
 }
 
