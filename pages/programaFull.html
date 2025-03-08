@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programa Completo - IPCB Career Summit 2025</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .shape-decoration {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+            border-radius: 50%;
+            opacity: 0.1;
+            z-index: -1;
+        }
+
+        .shape-decoration.top-left {
+            top: -50px;
+            left: -50px;
+        }
+
+        .shape-decoration.bottom-right {
+            bottom: -50px;
+            right: -50px;
+        }
+
+        .hover-scale {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .hover-scale:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 relative overflow-x-hidden">
+    <!-- Decoração: Formas geométricas -->
+    <div class="shape-decoration top-left"></div>
+    <div class="shape-decoration bottom-right"></div>
+
+    <!-- Navegação -->
+    <nav class="fixed top-0 w-full bg-gradient-to-r from-blue-900 to-blue-700 text-white shadow-md z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="../index.html" class="flex items-center">
+                <img src="../images/logo.png" alt="IPCB" class="h-10 rounded-full">
+                <span class="ml-2 text-xl font-bold">Career Summit 2025</span>
+            </a>
+
+            <!-- Menu Desktop -->
+            <div class="hidden md:flex space-x-8">
+                <a href="../index.html" class="hover:text-orange-500 transition-colors">Home</a>
+                <a href="programaFull.html" class="hover:text-orange-500 transition-colors">Programa</a>
+                <a href="empresasFull.html" class="hover:text-orange-500 transition-colors">Empresas</a>
+            </div>
+
+            <!-- Botão Mobile -->
+            <button id="menuBtn" class="md:hidden hover:text-orange-500 transition-colors">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M4 6h16M4 12h16m-16 6h16" />
+                </svg>
+            </button>
+        </div>
+
+        <!-- Menu Mobile -->
+        <div id="mobileMenu"
+            class="md:hidden hidden bg-gradient-to-r from-blue-900 to-blue-700 py-4 px-4 transform transition-all duration-300 ease-in-out -translate-y-full">
+            <a href="../index.html" class="block py-2 hover:text-orange-500 transition-colors">Home</a>
+            <a href="programaFull.html" class="block py-2 hover:text-orange-500 transition-colors">Programa</a>
+            <a href="empresasFull.html" class="block py-2 hover:text-orange-500 transition-colors">Empresas</a>
+        </div>
+    </nav>
+
+    <!-- Conteúdo da página -->
+    <section class="pt-24 pb-12">
+        <div class="container mx-auto px-4">
+            <!-- Título -->
+            <h2 class="text-4xl font-bold text-center mb-12 text-blue-900">
+                Programa Completo
+            </h2>
+
+            <!-- Lista de Atividades -->
+            <div class="max-w-3xl mx-auto space-y-8">
+                
+                <div class="bg-white p-6 rounded-xl shadow-lg hover-scale relative">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-user-friends text-3xl text-blue-500 mr-4"></i>
+                        <h3 class="text-xl font-semibold text-blue-900">09:00 - Recepção dos Participantes</h3>
+                    </div>
+                    <p class="text-gray-600">Boas-vindas e registo dos participantes.</p>
+                </div>
+
+                
+                <div class="bg-white p-6 rounded-xl shadow-lg hover-scale relative">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-microphone-alt text-3xl text-blue-500 mr-4"></i>
+                        <h3 class="text-xl font-semibold text-blue-900">09:30 - Sessão de Abertura</h3>
+                    </div>
+                    <p class="text-gray-600">Cerimónia de abertura com a direção do IPCB.</p>
+                </div>
+
+                
+                <div class="bg-white p-6 rounded-xl shadow-lg hover-scale relative">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-building text-3xl text-blue-500 mr-4"></i>
+                        <h3 class="text-xl font-semibold text-blue-900">10:30 - Road Show pelos Stands das Empresas</h3>
+                    </div>
+                    <p class="text-gray-600">Visita aos stands das empresas participantes.</p>
+                </div>
+
+                
+                <div class="bg-white p-6 rounded-xl shadow-lg hover-scale relative">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-chalkboard-teacher text-3xl text-blue-500 mr-4"></i>
+                        <h3 class="text-xl font-semibold text-blue-900">11:00 - Painel Temático</h3>
+                    </div>
+                    <p class="text-gray-600">Discussão sobre temas relevantes para o mercado de trabalho.</p>
+                </div>
+
+                
+                <div class="bg-white p-6 rounded-xl shadow-lg hover-scale relative">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-briefcase text-3xl text-blue-500 mr-4"></i>
+                        <h3 class="text-xl font-semibold text-blue-900">12:00 - Sessão Paralela: Entrevistas de
+                            Recrutamento</h3>
+                    </div>
+                    <p class="text-gray-600">Entrevistas com empresas participantes.</p>
+                </div>
+
+                
+                <div class="bg-white p-6 rounded-xl shadow-lg hover-scale relative">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-utensils text-3xl text-blue-500 mr-4"></i>
+                        <h3 class="text-xl font-semibold text-blue-900">13:00 - Almoço</h3>
+                    </div>
+                    <p class="text-gray-600">Intervalo para almoço.</p>
+                </div>
+
+                
+                <div class="bg-white p-6 rounded-xl shadow-lg hover-scale relative">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-tools text-3xl text-blue-500 mr-4"></i>
+                        <h3 class="text-xl font-semibold text-blue-900">14:30 - Workshop: Como Construir um Currículo
+                            Vencedor</h3>
+                    </div>
+                    <p class="text-gray-600">Dicas práticas para criar um currículo de destaque.</p>
+                </div>
+
+                
+                <div class="bg-white p-6 rounded-xl shadow-lg hover-scale relative">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-users text-3xl text-blue-500 mr-4"></i>
+                        <h3 class="text-xl font-semibold text-blue-900">15:30 - Mesa Redonda (Sessões em Simultâneo)
+                        </h3>
+                    </div>
+                    <div class="text-gray-600">
+                        <p><strong>Mesa 1:</strong> A ESART no Mundo do Trabalho</p>
+                        <p><strong>Orador:</strong> [Nome do Orador]</p>
+                        <p><strong>Moderador:</strong> [Nome do Moderador]</p>
+                        <p><strong>Mesa 2:</strong> Soft Skills e a Empregabilidade: O Que Faz a Diferença</p>
+                        <p><strong>Orador:</strong> [Nome do Orador]</p>
+                        <p><strong>Moderador:</strong> [Nome do Moderador]</p>
+                        <p><strong>Mesa 3:</strong> Impacto da Transformação Digital no Mercado de Trabalho</p>
+                        <p><strong>Orador:</strong> [Nome do Orador]</p>
+                        <p><strong>Moderador:</strong> [Nome do Moderador]</p>
+                    </div>
+                </div>
+
+                
+                <div class="bg-white p-6 rounded-xl shadow-lg hover-scale relative">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-bullhorn text-3xl text-blue-500 mr-4"></i>
+                        <h3 class="text-xl font-semibold text-blue-900">16:30 - Sessão Motivacional: O Sucesso Começa
+                            Agora</h3>
+                    </div>
+                    <p class="text-gray-600">Inspiração e motivação para o futuro profissional.</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl shadow-lg hover-scale relative">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-door-closed text-3xl text-blue-500 mr-4"></i>
+                        <h3 class="text-xl font-semibold text-blue-900">18:00 - Encerramento</h3>
+                    </div>
+                    <p class="text-gray-600">Conclusão do evento e agradecimentos.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-blue-900 text-white py-8">
+        <div class="container mx-auto px-4 text-center">
+            <p>© 2025 IPCB Career Summit</p>
+            <div class="mt-4 flex justify-center space-x-6">
+                <p>© 2023 INFOTEC. Desenvolvido pelo Núcleo de Informática e Multimédia da ESTCB. Todos os direitos
+                    reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script para o menu mobile -->
+    <script>
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        if (menuBtn) {
+            menuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+                if (!mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.remove('-translate-y-full');
+                    mobileMenu.classList.add('translate-y-0');
+                } else {
+                    mobileMenu.classList.remove('translate-y-0');
+                    mobileMenu.classList.add('-translate-y-full');
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>
