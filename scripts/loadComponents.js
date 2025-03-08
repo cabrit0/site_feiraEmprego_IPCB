@@ -56,5 +56,4 @@ function loadPageComponents() {
     }
 }
 
-// Executa a função ao carregar a página
 document.addEventListener('DOMContentLoaded', loadPageComponents);
