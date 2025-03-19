@@ -9,7 +9,27 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+        }
 
+        .hover-scale {
+            transition: all 0.3s ease;
+        }
+
+        .hover-scale:hover {
+            transform: scale(1.02);
+        }
+
+        .feature-card {
+            transition: all 0.3s ease;
+            border-left: 4px solid transparent;
+        }
+
+        .feature-card:hover {
+            border-left: 4px solid #f97316;
+            background-color: #f0f9ff;
+        }
     </style>
 </head>
 
@@ -55,60 +75,121 @@
     <!-- Conteúdo da página -->
     <section class="pt-24 pb-12">
         <div class="container mx-auto px-4">
-            <!-- Título -->
-            <h2 class="text-4xl font-bold text-center mb-12 text-blue-900">
-                Empresas Participantes
-            </h2>
+            <!-- Título com efeito visual -->
+            <div class="text-center mb-12 relative">
+                <h2 class="text-4xl font-bold text-blue-900 inline-block relative">
+                    Empresas Participantes
+                    <span
+                        class="absolute left-0 bottom-0 w-full h-1 bg-gradient-to-r from-orange-500 to-blue-500 rounded"></span>
+                </h2>
+            </div>
 
             <!-- Descrição -->
-            <div class="bg-white p-6 rounded-xl shadow-lg hover-scale mb-12">
-                <p class="text-gray-600 mb-4">
-                    No dia 2 de abril, o IPCB Career Summit 2025 disponibiliza um espaço onde as Empresas, Escolas e os
-                    Estudantes poderão interagir entre si, proporcionando um contacto mais direto:
-                </p>
-                <ul class="list-disc list-inside text-gray-600">
-                    <li>Cada Empresa que participa no evento pode estar presente no Espaço de Networking, se assim
-                        pretender;</li>
-                    <li>Cada empresa/entidade terá um espaço com 1 mesa, 2 cadeiras, 1 ponto de eletricidade e acesso à
-                        rede Wi-Fi;</li>
-                    <li>As empresas podem trazer estruturas próprias desde que se enquadrem na área do espaço a
-                        disponibilizar: [2 x 2 m];</li>
-                    <li>Os participantes podem trazer material promocional, como roll up, flyers, material para oferta,
-                        etc;</li>
-                    <li>O número de expositores é limitado e estará disponível até ao preenchimento das vagas
-                        existentes.</li>
-                </ul>
+            <div
+                class="bg-gradient-to-br from-white to-blue-50 p-8 rounded-xl shadow-lg hover-scale mb-12 border border-blue-100">
+                <div class="flex items-start gap-4 mb-6">
+                    <div class="bg-blue-100 p-3 rounded-full">
+                        <i class="fas fa-building text-blue-600 text-2xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-blue-900 mb-3">Espaço de Networking</h3>
+                        <p class="text-gray-700 leading-relaxed mb-4">
+                            No dia 2 de abril, o IPCB Career Summit 2025 disponibiliza um espaço onde as Empresas,
+                            Escolas e os
+                            Estudantes poderão interagir entre si, proporcionando um contacto mais direto:
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Lista com ícones e design moderno -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 ml-6">
+                    <div class="feature-card bg-white p-4 rounded-lg shadow-sm flex items-start gap-3">
+                        <div class="text-orange-500">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <p class="text-gray-700">Cada Empresa que participa no evento pode estar presente no Espaço de
+                            Networking, se assim
+                            pretender</p>
+                    </div>
+
+                    <div class="feature-card bg-white p-4 rounded-lg shadow-sm flex items-start gap-3">
+                        <div class="text-orange-500">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <p class="text-gray-700">Cada empresa/entidade terá um espaço com 1 mesa, 2 cadeiras, 1 ponto de
+                            eletricidade e acesso à
+                            rede Wi-Fi</p>
+                    </div>
+
+                    <div class="feature-card bg-white p-4 rounded-lg shadow-sm flex items-start gap-3">
+                        <div class="text-orange-500">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <p class="text-gray-700">As empresas podem trazer estruturas próprias desde que se enquadrem na
+                            área do espaço a
+                            disponibilizar: [2 x 2 m]</p>
+                    </div>
+
+                    <div class="feature-card bg-white p-4 rounded-lg shadow-sm flex items-start gap-3">
+                        <div class="text-orange-500">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <p class="text-gray-700">Os participantes podem trazer material promocional, como roll up,
+                            flyers, material para oferta,
+                            etc.</p>
+                    </div>
+
+                    <div class="feature-card bg-white p-4 rounded-lg shadow-sm flex items-start gap-3 md:col-span-2">
+                        <div class="text-orange-500">
+                            <i class="fas fa-exclamation-circle"></i>
+                        </div>
+                        <p class="text-gray-700 font-medium">O número de expositores é limitado e estará disponível até
+                            ao preenchimento das vagas
+                            existentes.</p>
+                    </div>
+                </div>
             </div>
 
-            <!-- Botão de Call-to-Action -->
-            <div class="text-center mb-12">
-                <a href="#formulario"
-                    class="bg-orange-500 text-white px-8 py-3 rounded-lg hover:bg-orange-600 transition-colors shadow-lg text-lg font-semibold">
-                    Inscreva sua empresa agora!
-                </a>
-            </div>
+
 
             <!-- Seção de Benefícios -->
             <div class="bg-white p-6 rounded-xl shadow-lg hover-scale mb-12">
-                <h3 class="text-2xl font-bold text-blue-900 mb-4">Por que participar?</h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <div class="text-center">
-                        <i class="fas fa-users text-4xl text-blue-500 mb-4"></i>
-                        <p class="text-gray-600">Acesso a talentos qualificados.</p>
+                <h3 class="text-2xl font-bold text-blue-900 mb-6 pl-4 border-l-4 border-orange-500">Por que participar?
+                </h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="text-center p-6 bg-blue-50 rounded-xl hover:bg-blue-100 transition-colors">
+                        <div
+                            class="bg-blue-500 text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-users text-2xl"></i>
+                        </div>
+                        <p class="text-gray-700 font-medium">Acesso a talentos qualificados.</p>
                     </div>
-                    <div class="text-center">
-                        <i class="fas fa-bullhorn text-4xl text-blue-500 mb-4"></i>
-                        <p class="text-gray-600">Divulgue sua marca para futuros profissionais.</p>
+                    <div class="text-center p-6 bg-blue-50 rounded-xl hover:bg-blue-100 transition-colors">
+                        <div
+                            class="bg-blue-500 text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-bullhorn text-2xl"></i>
+                        </div>
+                        <p class="text-gray-700 font-medium">Divulgue sua marca para futuros profissionais.</p>
                     </div>
-                    <div class="text-center">
-                        <i class="fas fa-handshake text-4xl text-blue-500 mb-4"></i>
-                        <p class="text-gray-600">Networking com outras empresas e instituições.</p>
+                    <div class="text-center p-6 bg-blue-50 rounded-xl hover:bg-blue-100 transition-colors">
+                        <div
+                            class="bg-blue-500 text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-handshake text-2xl"></i>
+                        </div>
+                        <p class="text-gray-700 font-medium">Networking com outras empresas e instituições.</p>
                     </div>
                 </div>
             </div>
 
             <!-- Logos das Empresas -->
-            <h3 class="text-2xl font-bold text-blue-900 mb-8">Empresas Confirmadas</h3>
+            <div class="text-center mb-8">
+                <h3 class="text-2xl font-bold text-blue-900 inline-block relative">
+                    Empresas Confirmadas
+                    <span
+                        class="absolute left-0 bottom-0 w-full h-1 bg-gradient-to-r from-blue-500 to-orange-500 rounded"></span>
+                </h3>
+            </div>
+
             <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8 mb-12">
                 <!-- Logo 1 -->
                 <div
@@ -140,40 +221,40 @@
                     <img src="../images/ritain_io.png" alt="Empresa 5" class="max-h-16 w-auto">
                 </div>
             </div>
-            <!-- Adicione mais logos aqui -->
-        </div>
 
-        <!-- Depoimentos -->
-        <div class="bg-white p-6 rounded-xl shadow-lg hover-scale mb-12">
-            <h3 class="text-2xl font-bold text-blue-900 mb-4">O que dizem as empresas?</h3>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div class="text-center">
-                    <p class="text-gray-600 italic">"Participar do IPCB Career Summit foi uma experiência incrível.
-                        Encontramos talentos excepcionais!"</p>
-                    <p class="text-blue-900 font-semibold mt-2">— Empresa XYZ</p>
-                </div>
-                <div class="text-center">
-                    <p class="text-gray-600 italic">"O networking proporcionado pelo evento abriu portas para novas
-                        parcerias."</p>
-                    <p class="text-blue-900 font-semibold mt-2">— Empresa ABC</p>
+            <!-- Depoimentos -->
+            <div class="bg-gradient-to-br from-blue-50 to-white p-6 rounded-xl shadow-lg hover-scale mb-12">
+                <h3 class="text-2xl font-bold text-blue-900 mb-6 pl-4 border-l-4 border-orange-500">O que dizem as
+                    empresas?</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="bg-white p-5 rounded-lg shadow-sm relative">
+                        <div class="text-blue-500 text-4xl absolute -top-4 -left-2 opacity-30">"</div>
+                        <p class="text-gray-700 italic pt-2">Participar do IPCB Career Summit foi uma experiência
+                            incrível.
+                            Encontramos talentos excepcionais!</p>
+                        <div class="flex items-center mt-4">
+                            <div class="bg-blue-100 w-10 h-10 rounded-full flex items-center justify-center">
+                                <i class="fas fa-building text-blue-600"></i>
+                            </div>
+                            <p class="text-blue-900 font-semibold ml-3">— Empresa XYZ</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-5 rounded-lg shadow-sm relative">
+                        <div class="text-blue-500 text-4xl absolute -top-4 -left-2 opacity-30">"</div>
+                        <p class="text-gray-700 italic pt-2">O networking proporcionado pelo evento abriu portas para
+                            novas
+                            parcerias.</p>
+                        <div class="flex items-center mt-4">
+                            <div class="bg-blue-100 w-10 h-10 rounded-full flex items-center justify-center">
+                                <i class="fas fa-building text-blue-600"></i>
+                            </div>
+                            <p class="text-blue-900 font-semibold ml-3">— Empresa ABC</p>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <!-- Formulário de Inscrição -->
-        <div id="formulario" class="bg-white p-6 rounded-xl shadow-lg hover-scale"
-            style="background-image: linear-gradient(to right, #eaf2fd, #ddebfc, #eff6ff);">
-            <h3 class="text-2xl font-bold text-blue-900 mb-4">Inscreva sua empresa</h3>
-            <form class="space-y-4">
-                <input type="text" placeholder="Nome da Empresa" class="w-full p-2 border rounded-lg">
-                <input type="email" placeholder="Email" class="w-full p-2 border rounded-lg">
-                <input type="tel" placeholder="Telefone" class="w-full p-2 border rounded-lg">
-                <button type="submit"
-                    class="bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-800 transition-colors">
-                    Enviar Inscrição
-                </button>
-            </form>
-        </div>
         </div>
     </section>
 
