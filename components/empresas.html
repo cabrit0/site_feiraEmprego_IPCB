@@ -68,8 +68,10 @@
                 'hover:shadow-xl transition-all transform hover:-translate-y-2 ' +
                 'hover:scale-105 h-32 hover:bg-cyan-200 bg-blue-100 w-40 flex-shrink-0 mx-2';
 
+            // /site_feiraEmprego_IPCB/images/empresas/${empresa}
+            // ../images/empresas/${empresa}
             const img = document.createElement('img');
-            img.src = `../images/empresas/${empresa}`;
+            img.src = `/site_feiraEmprego_IPCB/images/empresas/${empresa}`;
             img.alt = empresa.split('.')[0];
             img.className = 'max-h-12 w-auto object-contain';
 
