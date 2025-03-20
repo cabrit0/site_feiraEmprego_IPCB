@@ -1,47 +1,124 @@
-<!-- components/empresas.html -->
 <section id="empresas" class="min-h-screen grid place-items-center bg-gradient-to-b from-blue-50 to-white">
     <div class="container mx-auto px-4">
         <h2 class="text-4xl font-bold text-center mb-12 text-blue-900">
             Empresas Parceiras
         </h2>
 
-        <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8 justify-center">
-            <!-- Logo 1 -->
-            <div
-                class="flex items-center justify-center p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-4 hover:scale-105 h-40 hover:bg-cyan-200 bg-blue-100">
-                <img src="images/capgemini.png" alt="Empresa 1" class="max-h-16 w-auto">
+        <!-- Primeira Faixa de Logos -->
+        <div class="relative w-full overflow-hidden py-8 group">
+            <div class="flex animate-marquee whitespace-nowrap">
+                <div class="flex items-center gap-8" id="logos-container1"></div>
             </div>
+        </div>
 
-            <!-- Logo 2 -->
-            <div
-                class="flex items-center justify-center p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-4 hover:scale-105 h-40 hover:bg-cyan-200 bg-blue-100">
-                <img src="images/introsys.png" alt="Empresa 2" class="max-h-16 w-auto">
-            </div>
-
-            <!-- Logo 3 -->
-            <div
-                class="flex items-center justify-center p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-4 hover:scale-105 h-40 hover:bg-cyan-200 bg-blue-100">
-                <img src="images/latitudde.png" alt="Empresa 3" class="max-h-16 w-auto">
-            </div>
-
-            <!-- Logo 4 -->
-            <div
-                class="flex items-center justify-center p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-4 hover:scale-105 h-40 hover:bg-cyan-200 bg-blue-100">
-                <img src="images/readinessIT.png" alt="Empresa 4" class="max-h-16 w-auto">
-            </div>
-
-            <!-- Logo 5 -->
-            <div
-                class="flex items-center justify-center p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-4 hover:scale-105 h-40 hover:bg-cyan-200 bg-blue-100">
-                <img src="images/ritain_io.png" alt="Empresa 5" class="max-h-16 w-auto">
+        <!-- Segunda Faixa de Logos (Sentido Inverso) -->
+        <div class="relative w-full overflow-hidden py-8 group">
+            <div class="flex animate-marquee-reverse whitespace-nowrap">
+                <div class="flex items-center gap-8" id="logos-container2"></div>
             </div>
         </div>
 
         <div class="mt-12 text-center">
-            <a href="pages/empresasFull.html"
-                class="inline-block bg-orange-500 text-white px-8 py-3 rounded-lg hover:bg-orange-600 transition-colors shadow-lg text-lg font-semibold hover:scale-105">
+            <a href="pages/empresasFull.html" class="inline-block bg-orange-500 text-white px-8 py-3 rounded-lg hover:bg-orange-600 transition-colors 
+                      shadow-lg text-lg font-semibold hover:scale-105">
                 Ver Todas as Empresas →
             </a>
         </div>
     </div>
 </section>
+
+<script>
+    // Lista completa de empresas
+    const empresas = [
+        "adecco.jpg", "AEEB.jpg", "afidea.jpg", "afocelca_logo.jpg",
+        "Ambienti.jpg", "APTIV.png", "asfertglobal.jpg", "be-great.png",
+        "Burel-Factory.webp", "capgemini.png", "Centro social.jpg",
+        "clinica_M_Santos.jpg", "CMR.png", "coprax.jpg", "CVCasteloBranco.jpg",
+        "C_consulting.png", "ETEPA.png", "fitness_up.jpg", "FPF.jpg",
+        "Grupo-Your.jpg", "HC.png", "interfire.jpg", "introsys.png",
+        "latitudde.png", "Logo-HVC.png", "logo_companhiadolucriz.jpg",
+        "mac.jpg", "Mecalbi.jpg", "Mercado_das_viagens.jpg", "Morgado.jpg",
+        "navigator.jpg", "networking.jpg", "OIP.jpg", "Ordem_Eng.jpg",
+        "Presuntos_Rodrigues.width-450.png", "print.png", "QA.jpg",
+        "quita_termos_logo-CERTO.png", "readinessIT.png", "ritain_io.png",
+        "Scheibers.jpg", "SCMCB.bmp", "semente viva.png", "sonae.jpg",
+        "tangível-logo.png", "Twintex-logo.png", "ULS.jpg", "uniovo.jpg",
+        "VetBeirao.jpg", "viriato.jpg", "visobeira.png", "vitorine.jpg", "wdretail.png"
+    ];
+
+    // Dividir a lista em duas partes sem repetições
+    const middle = Math.ceil(empresas.length / 2);
+    const empresas1 = empresas.slice(0, middle);
+    const empresas2 = empresas.slice(middle);
+
+    // Função para criar elementos de imagem
+    function createLogos(containerId, empresasArray) {
+        const container = document.getElementById(containerId);
+        if (!container) return;
+
+        // Duplicar a lista para efeito contínuo
+        const duplicatedEmpresas = [...empresasArray, ...empresasArray];
+
+        duplicatedEmpresas.forEach(empresa => {
+            const logoDiv = document.createElement('div');
+            logoDiv.className = 'flex items-center justify-center p-6 bg-white rounded-xl shadow-lg ' +
+                'hover:shadow-xl transition-all transform hover:-translate-y-4 ' +
+                'hover:scale-105 h-40 hover:bg-cyan-200 bg-blue-100 w-48 flex-shrink-0';
+
+            const img = document.createElement('img');
+            img.src = `../images/empresas/${empresa}`;
+            img.alt = empresa.split('.')[0];
+            img.className = 'max-h-16 w-auto';
+
+            img.onerror = function () {
+                console.error('Erro ao carregar:', this.src);
+                this.parentElement.remove();
+            };
+
+            logoDiv.appendChild(img);
+            container.appendChild(logoDiv);
+        });
+    }
+
+    // Inicializar componentes
+    function initEmpresas() {
+        createLogos('logos-container1', empresas1);
+        createLogos('logos-container2', empresas2);
+    }
+
+    initEmpresas();
+</script>
+
+<style>
+    @keyframes marquee {
+        0% {
+            transform: translateX(0%);
+        }
+
+        100% {
+            transform: translateX(-100%);
+        }
+    }
+
+    @keyframes marquee-reverse {
+        0% {
+            transform: translateX(-100%);
+        }
+
+        100% {
+            transform: translateX(0%);
+        }
+    }
+
+    .animate-marquee {
+        animation: marquee 60s linear infinite;
+    }
+
+    .animate-marquee-reverse {
+        animation: marquee-reverse 60s linear infinite;
+    }
+
+    .hover\:pause-animation:hover {
+        animation-play-state: paused;
+    }
+</style>

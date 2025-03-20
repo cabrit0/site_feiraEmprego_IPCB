@@ -30,6 +30,33 @@
             border-left: 4px solid #f97316;
             background-color: #f0f9ff;
         }
+
+        /* Animação de entrada */
+        @keyframes cardEntrance {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Efeito de gradiente dinâmico */
+        .shadow-gradient::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 30px;
+            background: linear-gradient(to bottom,
+                    rgba(255, 255, 255, 0) 0%,
+                    rgba(255, 255, 255, 0.9) 100%);
+            pointer-events: none;
+        }
     </style>
 </head>
 
@@ -148,8 +175,6 @@
                 </div>
             </div>
 
-
-
             <!-- Seção de Benefícios -->
             <div class="bg-white p-6 rounded-xl shadow-lg hover-scale mb-12">
                 <h3 class="text-2xl font-bold text-blue-900 mb-6 pl-4 border-l-4 border-orange-500">Por que participar?
@@ -186,35 +211,15 @@
                 </h3>
             </div>
 
-            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8 mb-12">
-                <!-- Logo 1 -->
+            <div class="relative group">
+                <!-- Efeito de gradiente nas bordas -->
                 <div
-                    class="flex items-center justify-center p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-4 hover:scale-105 h-40 hover:bg-cyan-200 bg-blue-100">
-                    <img src="../images/capgemini.png" alt="Empresa 1" class="max-h-16 w-auto">
+                    class="absolute inset-0 shadow-[inset_0_-30px_30px_-15px_rgba(255,255,255,1)] z-20 pointer-events-none">
                 </div>
 
-                <!-- Logo 2 -->
-                <div
-                    class="flex items-center justify-center p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-4 hover:scale-105 h-40 hover:bg-cyan-200 bg-blue-100">
-                    <img src="../images/introsys.png" alt="Empresa 2" class="max-h-16 w-auto">
-                </div>
-
-                <!-- Logo 3 -->
-                <div
-                    class="flex items-center justify-center p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-4 hover:scale-105 h-40 hover:bg-cyan-200 bg-blue-100">
-                    <img src="../images/latitudde.png" alt="Empresa 3" class="max-h-16 w-auto">
-                </div>
-
-                <!-- Logo 4 -->
-                <div
-                    class="flex items-center justify-center p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-4 hover:scale-105 h-40 hover:bg-cyan-200 bg-blue-100">
-                    <img src="../images/readinessIT.png" alt="Empresa 4" class="max-h-16 w-auto">
-                </div>
-
-                <!-- Logo 5 -->
-                <div
-                    class="flex items-center justify-center p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-4 hover:scale-105 h-40 hover:bg-cyan-200 bg-blue-100">
-                    <img src="../images/ritain_io.png" alt="Empresa 5" class="max-h-16 w-auto">
+                <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4 mb-12 relative">
+                    <!-- Os logos serão inseridos aqui via JavaScript -->
+                    <div id="full-logos-container" class="contents"></div>
                 </div>
             </div>
 
@@ -283,6 +288,82 @@
                 }
             });
         }
+    </script>
+
+    <!-- Script para carregar os logos das empresas -->
+    <script>
+        // Lista completa de empresas (exemplo com 63 empresas)
+        const todasEmpresas = [
+            "adecco.jpg", "AEEB.jpg", "afidea.jpg", "afocelca.jpg", "Ambienti.jpg", "APTIV.png", "asfertglobal.jpg", "be great.png",
+            "Burel Factory.webp", "C consulting.png", "capgemini.png", "Centro social.jpg", "clinica M. Santos.jpg", "CMR.png", "companhia do lucriz.jpg",
+            "coprax.jpg", "CVCasteloBranco.jpg", "ETEPA.png", "fitness_up.jpg", "FPF.jpg", "Grupo Your.jpg", "HC.png", "HVC.png", "interfire.jpg",
+            "introsys.png", "latitudde.png", "macdonalds.jpg", "Mecalbi.jpg", "Mercado das viagens.jpg", "Morgado.jpg", "navigator.jpg",
+            "networking.jpg", "OIP.jpg", "Ordem Engenheiros.jpg", "Presuntos Rodrigues.png", "print2you.png", "Quinta da Aamendoeira.jpg",
+            "Quita Termos.png", "readinessIT.png", "ritain io.png", "Scheibers.jpg", "SCMCB.bmp", "semente viva.png", "sonae.jpg", "tangivel.png",
+            "Twintex-logo.png", "ULS.jpg", "uniovo.jpg", "VetBeirao.jpg", "viriato.jpg", "visobeira.png", "vitorine.jpg", "wdretail.png"
+        ];
+
+        function criarLogosCompletos() {
+            const container = document.getElementById('full-logos-container');
+
+            todasEmpresas.forEach((empresa, index) => {
+                const card = document.createElement('div');
+                card.className = `flex flex-col items-center p-4 bg-white rounded-xl shadow-md 
+                                hover:shadow-xl transition-all duration-300 hover:-translate-y-2
+                                group relative overflow-hidden h-32`;
+
+                // Efeito de hover
+                card.innerHTML = `
+                    <div class="absolute inset-0 bg-gradient-to-br from-blue-50 to-white opacity-0 
+                              group-hover:opacity-100 transition-opacity duration-300 z-0"></div>
+                    <div class="relative z-10 flex flex-col items-center justify-center h-full">
+                        <img src="../images/empresas/${empresa}" 
+                             alt="${empresa.split('.')[0]}" 
+                             class="max-h-12 w-auto object-contain grayscale hover:grayscale-0 
+                                    transition-all duration-300">
+                        <span class="text-xs text-gray-600 mt-2 opacity-0 group-hover:opacity-100 
+                                   transition-opacity duration-300 text-center">
+                            ${empresa.split('.')[0]}
+                        </span>
+                    </div>
+                `;
+
+                // Tratamento de erro para imagens
+                const img = card.querySelector('img');
+                img.onerror = function () {
+                    this.style.display = 'none';
+                    card.querySelector('span').classList.remove('opacity-0');
+                    card.querySelector('span').classList.add('text-red-500');
+                };
+
+                container.appendChild(card);
+            });
+        }
+
+        // Animação ao scroll
+        function observarScroll() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('#full-logos-container > div').forEach((card) => {
+                card.style.opacity = 0;
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+                observer.observe(card);
+            });
+        }
+
+        // Inicialização
+        window.addEventListener('DOMContentLoaded', () => {
+            criarLogosCompletos();
+            observarScroll();
+        });
     </script>
 </body>
 
