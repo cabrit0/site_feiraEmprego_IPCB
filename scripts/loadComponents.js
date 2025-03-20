@@ -1,9 +1,9 @@
-// Função para carregar componentes
+// scripts/loadComponents.js
 function loadComponent(componentId, filePath) {
     return fetch(filePath)
         .then(response => {
             if (!response.ok) {
-                throw new Error(`Erro ao carregar o componente: ${response.statusText}`);
+                throw new Error(`Erro ao carregar ${componentId}: ${response.statusText}`);
             }
             return response.text();
         })
@@ -11,52 +11,71 @@ function loadComponent(componentId, filePath) {
             const container = document.getElementById(componentId);
             container.innerHTML = data;
 
-            // Extrai e executa scripts embutidos
+            // Processar scripts e garantir execução
             const scripts = container.querySelectorAll('script');
-            scripts.forEach(oldScript => {
-                const newScript = document.createElement('script');
-                if (oldScript.src) {
-                    newScript.src = oldScript.src;
-                } else {
-                    newScript.text = oldScript.text;
-                }
-                document.body.appendChild(newScript);
-                oldScript.remove();
+            const scriptPromises = Array.from(scripts).map(oldScript => {
+                return new Promise((resolve, reject) => {
+                    const newScript = document.createElement('script');
+                    
+                    if (oldScript.src) {
+                        newScript.src = oldScript.src;
+                        newScript.onload = resolve;
+                        newScript.onerror = reject;
+                    } else {
+                        newScript.text = oldScript.text;
+                        resolve();
+                    }
+                    
+                    document.body.appendChild(newScript);
+                    oldScript.remove();
+                });
             });
 
-            return container;
+            return Promise.all(scriptPromises).then(() => container);
         })
         .catch(error => {
-            console.error(`Erro ao carregar ${componentId}:`, error);
+            console.error(`Falha ao carregar ${componentId}:`, error);
         });
 }
 
-// Função para carregar componentes com base na página atual
 function loadPageComponents() {
     const path = window.location.pathname;
+    const isNestedPage = path.includes('/pages/');
+    const basePath = isNestedPage ? '../' : './';
 
-    // Componentes comuns a todas as páginas
-    loadComponent('navigation', './components/navigation.html');
-    loadComponent('footer', './components/footer.html');
-
-    // Componentes específicos para a página inicial
-    if (path.endsWith('index.html') || path.endsWith('/')) {
-        Promise.all([
-            loadComponent('banner', './components/banner.html'),
-            loadComponent('horizontalScroll', './components/horizontalScroll.html'),
-            loadComponent('sobre', './components/sobre.html'),
-            loadComponent('programa', './components/programa.html'),
-            loadComponent('empresas', './components/empresas.html'),
-            loadComponent('localizacao', './components/localizacao.html')
-        ]).then(() => {
-            // Inicializa componentes após carregamento
-            if (typeof initEmpresas === 'function') {
-                initEmpresas();
-                initSlider();
+    // Carregar navegação primeiro
+    loadComponent('navigation', `${basePath}components/navigation.html`)
+        .then(() => {
+            // Inicializar menu mobile após carregamento
+            if (typeof initMenu === 'function') {
+                initMenu();
+                setActiveLink();
             }
         });
+
+    // Componentes comuns
+    loadComponent('footer', `${basePath}components/footer.html`);
+
+    // Página inicial
+    if (path.endsWith('index.html') || path.endsWith('/')) {
+        Promise.all([
+            loadComponent('banner', `${basePath}components/banner.html`),
+            loadComponent('horizontalScroll', `${basePath}components/horizontalScroll.html`),
+            loadComponent('sobre', `${basePath}components/sobre.html`),
+            loadComponent('programa', `${basePath}components/programa.html`),
+            loadComponent('empresas', `${basePath}components/empresas.html`),
+            loadComponent('localizacao', `${basePath}components/localizacao.html`)
+        ]).then(() => {
+            // Inicializar sliders após todos os scripts estarem prontos
+            if (typeof initSlider === 'function') initSlider();
+            if (typeof initEmpresas === 'function') initEmpresas();
+        });
+    }
+
+    // Página programaFull
+    if (path.endsWith('programaFull.html')) {
+        loadComponent('programa-full', `${basePath}components/programaFull.html`);
     }
 }
 
-// Carrega os componentes quando o DOM estiver pronto
 document.addEventListener('DOMContentLoaded', loadPageComponents);
