@@ -1,29 +1,29 @@
-<section id="empresas" class="min-h-screen bg-gradient-to-b from-blue-50 to-white py-16">
+<section id="empresas" class="min-h-screen bg-gradient-to-b from-blue-50 to-white py-16 max-w-[100vw] overflow-hidden">
     <div class="container mx-auto px-4">
         <h2 class="text-4xl font-bold text-center mb-12 text-blue-900">
             Empresas Parceiras
         </h2>
 
         <!-- Container principal modificado -->
-        <div class="relative w-full overflow-x-hidden">
+        <div class="relative w-full overflow-hidden">
             <!-- Primeira Faixa de Logos -->
-            <div class="relative w-full max-w-full overflow-hidden py-8 group">
-                <div class="flex animate-marquee whitespace-nowrap w-max">
+            <div class="relative w-full overflow-hidden py-8 group">
+                <div class="flex animate-marquee whitespace-nowrap">
                     <div class="flex items-center gap-4" id="logos-container1"></div>
                 </div>
             </div>
 
             <!-- Segunda Faixa de Logos (Sentido Inverso) -->
-            <div class="relative w-full max-w-full overflow-hidden py-8 group">
-                <div class="flex animate-marquee-reverse whitespace-nowrap w-max">
+            <div class="relative w-full overflow-hidden py-8 group">
+                <div class="flex animate-marquee-reverse whitespace-nowrap">
                     <div class="flex items-center gap-4" id="logos-container2"></div>
                 </div>
             </div>
         </div>
 
         <div class="mt-12 text-center">
-            <a href="pages/empresasFull.html" class="inline-block bg-orange-500 text-white px-8 py-3 rounded-lg hover:bg-orange-600 transition-colors 
-                      shadow-lg text-lg font-semibold hover:scale-105">
+            <a href="pages/empresasFull.html"
+                class="inline-block bg-orange-500 text-white px-8 py-3 rounded-lg hover:bg-orange-600 transition-colors shadow-lg text-lg font-semibold hover:scale-105">
                 Ver Todas as Empresas →
             </a>
         </div>
@@ -68,10 +68,8 @@
                 'hover:shadow-xl transition-all transform hover:-translate-y-2 ' +
                 'hover:scale-105 h-32 hover:bg-cyan-200 bg-blue-100 w-40 flex-shrink-0 mx-2';
 
-            /// /site_feiraEmprego_IPCB/images/empresas/${empresa}
-            // ../images/empresas/${empresa}
             const img = document.createElement('img');
-            img.src = `/site_feiraEmprego_IPCB/images/empresas/${empresa}`;
+            img.src = `../images/empresas/${empresa}`;
             img.alt = empresa.split('.')[0];
             img.className = 'max-h-12 w-auto object-contain';
 
