@@ -2,12 +2,10 @@ import os
 
 def listar_ficheiros(pasta: str, ficheiro_saida: str):
     try:
-        # Verificar se a pasta existe
         if not os.path.isdir(pasta):
             print(f"Erro: A pasta '{pasta}' não existe.")
             return
-
-        # Obter lista de ficheiros
+        
         ficheiros = os.listdir(pasta)
 
         # Guardar nomes e extensões no ficheiro de saída
@@ -22,8 +20,8 @@ def listar_ficheiros(pasta: str, ficheiro_saida: str):
         print(f"Erro: {e}")
 
 # Definir os caminhos diretamente no código
-pasta = "C:/Users/jccab/Desktop/ESTCB/site_feiraEmprego_IPCB/images/empresas"  # Altera para o caminho desejado
-ficheiro_saida = "C:/Users/jccab/Desktop/ESTCB/site_feiraEmprego_IPCB/lista2.txt"  # Altera para o caminho desejado
+pasta = "C:/Users/jccab/Desktop/ESTCB/site_feiraEmprego_IPCB/images/empresas"  
+ficheiro_saida = "C:/Users/jccab/Desktop/ESTCB/site_feiraEmprego_IPCB/lista2.txt"  
 
-# Chamar a função
+
 listar_ficheiros(pasta, ficheiro_saida)
