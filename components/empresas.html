@@ -1,20 +1,23 @@
-<section id="empresas" class="min-h-screen grid place-items-center bg-gradient-to-b from-blue-50 to-white">
+<section id="empresas" class="min-h-screen bg-gradient-to-b from-blue-50 to-white py-16">
     <div class="container mx-auto px-4">
         <h2 class="text-4xl font-bold text-center mb-12 text-blue-900">
             Empresas Parceiras
         </h2>
 
-        <!-- Primeira Faixa de Logos -->
-        <div class="relative w-full overflow-hidden py-8 group">
-            <div class="flex animate-marquee whitespace-nowrap">
-                <div class="flex items-center gap-8" id="logos-container1"></div>
+        <!-- Container principal modificado -->
+        <div class="relative w-full overflow-x-hidden">
+            <!-- Primeira Faixa de Logos -->
+            <div class="relative w-full max-w-full overflow-hidden py-8 group">
+                <div class="flex animate-marquee whitespace-nowrap w-max">
+                    <div class="flex items-center gap-4" id="logos-container1"></div>
+                </div>
             </div>
-        </div>
 
-        <!-- Segunda Faixa de Logos (Sentido Inverso) -->
-        <div class="relative w-full overflow-hidden py-8 group">
-            <div class="flex animate-marquee-reverse whitespace-nowrap">
-                <div class="flex items-center gap-8" id="logos-container2"></div>
+            <!-- Segunda Faixa de Logos (Sentido Inverso) -->
+            <div class="relative w-full max-w-full overflow-hidden py-8 group">
+                <div class="flex animate-marquee-reverse whitespace-nowrap w-max">
+                    <div class="flex items-center gap-4" id="logos-container2"></div>
+                </div>
             </div>
         </div>
 
@@ -23,7 +26,6 @@
                       shadow-lg text-lg font-semibold hover:scale-105">
                 Ver Todas as Empresas →
             </a>
-
         </div>
     </div>
 </section>
@@ -62,17 +64,16 @@
 
         duplicatedEmpresas.forEach(empresa => {
             const logoDiv = document.createElement('div');
-            logoDiv.className = 'flex items-center justify-center p-6 bg-white rounded-xl shadow-lg ' +
-                'hover:shadow-xl transition-all transform hover:-translate-y-4 ' +
-                'hover:scale-105 h-40 hover:bg-cyan-200 bg-blue-100 w-48 flex-shrink-0';
+            logoDiv.className = 'flex items-center justify-center p-4 bg-white rounded-xl shadow-lg ' +
+                'hover:shadow-xl transition-all transform hover:-translate-y-2 ' +
+                'hover:scale-105 h-32 hover:bg-cyan-200 bg-blue-100 w-40 flex-shrink-0 mx-2';
 
-            // ../images/empresas/${empresa}  
-            //  /site_feiraEmprego_IPCB/images/empresas//${empresa} 
-
+            /// /site_feiraEmprego_IPCB/images/empresas/${empresa}
+            // ../images/empresas/${empresa}
             const img = document.createElement('img');
             img.src = `/site_feiraEmprego_IPCB/images/empresas/${empresa}`;
             img.alt = empresa.split('.')[0];
-            img.className = 'max-h-16 w-auto';
+            img.className = 'max-h-12 w-auto object-contain';
 
             img.onerror = function () {
                 console.error('Erro ao carregar:', this.src);
@@ -90,36 +91,61 @@
         createLogos('logos-container2', empresas2);
     }
 
-    initEmpresas();
+    // Inicializa ao carregar
+    document.addEventListener('DOMContentLoaded', initEmpresas);
 </script>
 
 <style>
     @keyframes marquee {
         0% {
-            transform: translateX(0%);
+            transform: translateX(0);
         }
 
         100% {
-            transform: translateX(-100%);
+            transform: translateX(calc(-100% - 1rem));
         }
     }
 
     @keyframes marquee-reverse {
         0% {
-            transform: translateX(-100%);
+            transform: translateX(calc(-100% - 1rem));
         }
 
         100% {
-            transform: translateX(0%);
+            transform: translateX(0);
         }
     }
 
     .animate-marquee {
-        animation: marquee 60s linear infinite;
+        animation: marquee 40s linear infinite;
+        will-change: transform;
     }
 
     .animate-marquee-reverse {
-        animation: marquee-reverse 60s linear infinite;
+        animation: marquee-reverse 40s linear infinite;
+        will-change: transform;
+    }
+
+    @media (max-width: 640px) {
+        @keyframes marquee {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(calc(-100% - 0.5rem));
+            }
+        }
+
+        @keyframes marquee-reverse {
+            0% {
+                transform: translateX(calc(-100% - 0.5rem));
+            }
+
+            100% {
+                transform: translateX(0);
+            }
+        }
     }
 
     .hover\:pause-animation:hover {
