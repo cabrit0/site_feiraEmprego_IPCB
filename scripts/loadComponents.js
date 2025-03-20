@@ -52,6 +52,7 @@ function loadPageComponents() {
             // Inicializa componentes após carregamento
             if (typeof initEmpresas === 'function') {
                 initEmpresas();
+                initSlider();
             }
         });
     }
