@@ -1,0 +1,59 @@
+/* Animação para os eventos do programa */
+.animate-event {
+    opacity: 0;
+    transform: translateX(-20px);
+    animation: slideInEvent 0.6s ease-out forwards;
+    animation-delay: calc(var(--delay) * 0.1s);
+}
+
+@keyframes slideInEvent {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Linha do tempo visual */
+.timeline-connector {
+    position: absolute;
+    left: 32px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, #3b82f6 50%, transparent 50%);
+    background-size: 100% 20px;
+    animation: timelineProgress 2s linear infinite;
+}
+
+@keyframes timelineProgress {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: 0 20px;
+    }
+}
+
+/* Efeito hover melhorado */
+.hover-scale {
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.hover-scale:hover {
+    transform: translateY(-5px) translateX(5px);
+    box-shadow: 0 10px 25px rgba(59, 130, 246, 0.1);
+    background-color: #f8fafc;
+}
+
+/* Animação para os ícones */
+.icon-rotate {
+    transition: transform 0.3s ease;
+}
+
+.hover-scale:hover .icon-rotate {
+    transform: rotate(10deg);
+}
