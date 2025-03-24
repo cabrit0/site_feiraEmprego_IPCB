@@ -20,8 +20,8 @@ def listar_ficheiros(pasta: str, ficheiro_saida: str):
         print(f"Erro: {e}")
 
 # Definir os caminhos diretamente no código
-pasta = "C:/Users/jccab/Desktop/ESTCB/site_feiraEmprego_IPCB/images/empresas"  
-ficheiro_saida = "C:/Users/jccab/Desktop/ESTCB/site_feiraEmprego_IPCB/lista2.txt"  
+pasta = "C:/Users/jccab/Desktop/ESTCB/site_feiraEmprego_IPCB/images/patrocinios"  
+ficheiro_saida = "C:/Users/jccab/Desktop/ESTCB/site_feiraEmprego_IPCB/lista.txt"  
 
 
 listar_ficheiros(pasta, ficheiro_saida)

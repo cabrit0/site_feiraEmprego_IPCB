@@ -1,0 +1,87 @@
+<section class="py-16">
+    <div class="container mx-auto px-4">
+        <div class="text-center mb-8">
+            <h3 class="text-3xl font-bold text-blue-900 inline-block relative">
+                Patrocínios
+                <span
+                    class="absolute bottom-0 left-0 w-full h-1 bg-orange-500 transform scale-x-0 transition-transform duration-300 origin-left group-hover:scale-x-100"></span>
+            </h3>
+        </div>
+
+        <div class="relative group fade-in-up">
+            <div
+                class="absolute inset-0 shadow-[inset_0_-30px_30px_-15px_rgba(255,255,255,1)] z-20 pointer-events-none">
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4 mb-12 relative">
+                <div id="patrocinios-container" class="contents"></div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<script>
+    function initPatrocinios() {
+        const patrocinios = [
+            "Clinica marques dos santos.jpg",
+            "Dom Vitorine.jpg",
+            "GreenGoji.png",
+            "herdade Escrivao.jpg",
+            "Marcado viagens.jpg",
+            "Ordem engenheiros RC.jpg"
+        ];
+
+        function criarLogosPatrocinios() {
+            const container = document.getElementById('patrocinios-container');
+            if (!container) {
+                console.error('Container de patrocínios não encontrado');
+                return;
+            }
+
+            container.innerHTML = '';
+
+            patrocinios.forEach(patrocinio => {
+                const card = document.createElement('div');
+                card.className = 'flex flex-col items-center p-4 bg-white/90 backdrop-blur-sm rounded-xl shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group relative overflow-hidden h-32 shine-effect';
+
+                card.innerHTML = `
+                    <div class="absolute inset-0 bg-gradient-to-br from-blue-50 to-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-0"></div>
+                    <div class="relative z-10 flex flex-col items-center justify-center h-full">
+                        <img src="/site_feiraEmprego_IPCB/images/patrocinios/${patrocinio}" 
+                             alt="${patrocinio.split('.')[0]}" 
+                             class="max-h-12 w-auto object-contain grayscale hover:grayscale-0 transition-all duration-300">
+                        <span class="text-xs text-gray-600 mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-center">
+                            ${patrocinio.split('.')[0]}
+                        </span>
+                    </div>
+                `;
+
+                // /site_feiraEmprego_IPCB/images/patrocinios/${patrocinio}
+                // ../images/patrocinios/${patrocinio}
+
+                const img = card.querySelector('img');
+                img.onerror = function () {
+                    console.error('Erro ao carregar imagem:', patrocinio);
+                    this.style.display = 'none';
+                    card.querySelector('span').classList.remove('opacity-0');
+                    card.querySelector('span').classList.add('text-red-500');
+                };
+
+                container.appendChild(card);
+            });
+        }
+
+        setTimeout(criarLogosPatrocinios, 100);
+    }
+
+    // Exportar a função para o escopo global
+    window.initPatrocinios = initPatrocinios;
+
+    // Executar a inicialização se o componente for carregado diretamente
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initPatrocinios);
+    } else {
+        initPatrocinios();
+    }
+</script>
+

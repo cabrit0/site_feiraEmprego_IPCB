@@ -33,9 +33,17 @@
         }
 
         @keyframes gradient {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
         }
 
         /* Efeito de brilho nos cards */
@@ -51,12 +59,10 @@
             left: -50%;
             width: 200%;
             height: 200%;
-            background: linear-gradient(
-                45deg,
-                transparent 0%,
-                rgba(255, 255, 255, 0.1) 50%,
-                transparent 100%
-            );
+            background: linear-gradient(45deg,
+                    transparent 0%,
+                    rgba(255, 255, 255, 0.1) 50%,
+                    transparent 100%);
             transform: rotate(45deg);
             transition: all 0.3s;
             opacity: 0;
@@ -83,9 +89,17 @@
         }
 
         @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+
+            100% {
+                transform: scale(1);
+            }
         }
 
         .hover-scale {
@@ -215,7 +229,8 @@
             <div class="text-center mb-12 relative fade-in-up">
                 <h2 class="text-4xl font-bold text-blue-900 inline-block relative">
                     Empresas Participantes
-                    <span class="absolute bottom-0 left-0 w-full h-1 bg-orange-500 transform scale-x-0 transition-transform duration-300 origin-left group-hover:scale-x-100"></span>
+                    <span
+                        class="absolute bottom-0 left-0 w-full h-1 bg-orange-500 transform scale-x-0 transition-transform duration-300 origin-left group-hover:scale-x-100"></span>
                 </h2>
             </div>
 
@@ -291,25 +306,26 @@
                     Por que participar?
                 </h3>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <div class="text-center p-6 bg-blue-50/50 rounded-xl hover:bg-blue-100/50 transition-all duration-300 shine-effect">
-                        <div class="bg-blue-500 text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 icon-pulse">
+                    <div class="text-center p-6 bg-blue-50 rounded-xl hover:bg-blue-100 transition-colors">
+                        <div
+                            class="bg-blue-500 text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 icon-pulse">
                             <i class="fas fa-users text-2xl"></i>
                         </div>
                         <p class="text-gray-700 font-medium">Acesso a talentos qualificados</p>
                     </div>
                     <div class="text-center p-6 bg-blue-50 rounded-xl hover:bg-blue-100 transition-colors">
                         <div
-                            class="bg-blue-500 text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <i class="fas fa-bullhorn text-2xl"></i>
+                            class="bg-blue-500 text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 icon-pulse">
+                            <i class="fas fa-handshake text-2xl"></i>
                         </div>
-                        <p class="text-gray-700 font-medium">Divulgue sua marca para futuros profissionais.</p>
+                        <p class="text-gray-700 font-medium">Networking estratégico</p>
                     </div>
                     <div class="text-center p-6 bg-blue-50 rounded-xl hover:bg-blue-100 transition-colors">
                         <div
-                            class="bg-blue-500 text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <i class="fas fa-handshake text-2xl"></i>
+                            class="bg-blue-500 text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 icon-pulse">
+                            <i class="fas fa-bullseye text-2xl"></i>
                         </div>
-                        <p class="text-gray-700 font-medium">Networking com outras empresas e instituições.</p>
+                        <p class="text-gray-700 font-medium">Visibilidade da marca</p>
                     </div>
                 </div>
             </div>
@@ -333,15 +349,35 @@
                 </div>
             </div>
 
+            <!-- Patrocínios -->
+            <div class="text-center mb-8 mt-16">
+                <h3 class="text-2xl font-bold text-blue-900 inline-block relative">
+                    Patrocínios
+                </h3>
+            </div>
+
+            <div class="relative group fade-in-up">
+                <div
+                    class="absolute inset-0 shadow-[inset_0_-30px_30px_-15px_rgba(255,255,255,1)] z-20 pointer-events-none">
+                </div>
+
+                <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4 mb-12 relative">
+                    <div id="patrocinios-container" class="contents"></div>
+                </div>
+            </div>
+
             <!-- Depoimentos -->
-            <div class="bg-gradient-to-br from-blue-50/80 to-white/80 backdrop-blur-sm p-6 rounded-xl shadow-lg mb-12 fade-in-up">
+            <div
+                class="bg-gradient-to-br from-blue-50/80 to-white/80 backdrop-blur-sm p-6 rounded-xl shadow-lg mb-12 fade-in-up">
                 <h3 class="text-2xl font-bold text-blue-900 mb-6 pl-4 border-l-4 border-orange-500">
                     O que dizem as empresas?
                 </h3>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div class="testimonial-card bg-white/90 p-5 rounded-lg shadow-sm relative hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                    <div
+                        class="testimonial-card bg-white/90 p-5 rounded-lg shadow-sm relative hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
                         <div class="text-blue-500 text-4xl absolute -top-4 -left-2 opacity-30">"</div>
-                        <p class="text-gray-700 italic pt-2">Participar do IPCB Career Summit foi uma experiência incrível. Encontramos talentos excepcionais!</p>
+                        <p class="text-gray-700 italic pt-2">Participar do IPCB Career Summit foi uma experiência
+                            incrível. Encontramos talentos excepcionais!</p>
                         <div class="flex items-center mt-4">
                             <div class="bg-blue-100 w-10 h-10 rounded-full flex items-center justify-center">
                                 <i class="fas fa-building text-blue-600"></i>
@@ -350,9 +386,11 @@
                         </div>
                     </div>
 
-                    <div class="testimonial-card bg-white/90 p-5 rounded-lg shadow-sm relative hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                    <div
+                        class="testimonial-card bg-white/90 p-5 rounded-lg shadow-sm relative hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
                         <div class="text-blue-500 text-4xl absolute -top-4 -left-2 opacity-30">"</div>
-                        <p class="text-gray-700 italic pt-2">O networking proporcionado pelo evento abriu portas para novas parcerias.</p>
+                        <p class="text-gray-700 italic pt-2">O networking proporcionado pelo evento abriu portas para
+                            novas parcerias.</p>
                         <div class="flex items-center mt-4">
                             <div class="bg-blue-100 w-10 h-10 rounded-full flex items-center justify-center">
                                 <i class="fas fa-building text-blue-600"></i>
@@ -412,15 +450,22 @@
             document.querySelectorAll('.fade-in-up').forEach(el => observer.observe(el));
         }
 
-        // Lista completa de empresas (exemplo com 63 empresas)
+        // Lista completa de empresas
         const todasEmpresas = [
-            "adecco.jpg", "AEEB.jpg", "afidea.jpg", "afocelca.jpg", "Ambienti.jpg", "APTIV.png", "asfertglobal.jpg", "be great.png",
-            "Burel Factory.webp", "C consulting.png", "capgemini.png", "Centro social.jpg", "clinica M. Santos.jpg", "CMR.png", "companhia do lucriz.jpg",
-            "coprax.jpg", "CVCasteloBranco.jpg", "ETEPA.png", "fitness_up.jpg", "FPF.jpg", "Grupo Your.jpg", "HC.png", "HVC.png", "interfire.jpg",
-            "introsys.png", "latitudde.png", "macdonalds.jpg", "Mecalbi.jpg", "Mercado das viagens.jpg", "Morgado.jpg", "navigator.jpg",
-            "networking.jpg", "OIP.jpg", "Ordem Engenheiros.jpg", "Presuntos Rodrigues.png", "print2you.png", "Quinta da Aamendoeira.jpg",
-            "Quita Termos.png", "readinessIT.png", "ritain io.png", "Scheibers.jpg", "SCMCB.bmp", "semente viva.png", "sonae.jpg", "tangivel.png",
-            "Twintex-logo.png", "ULS.jpg", "uniovo.jpg", "VetBeirao.jpg", "viriato.jpg", "visobeira.png", "vitorine.jpg", "wdretail.png"
+            "adecco.jpg", "AEEB.jpg", "afidea.jpg", "afocelca.jpg",
+            "Ambienti.jpg", "APTIV.png", "asfertglobal.jpg", "be great.png",
+            "Burel Factory.webp", "C consulting.png", "capgemini.png", "Centro social.jpg",
+            "clinica M. Santos.jpg", "CMR.png", "companhia do lucriz.jpg", "coprax.jpg",
+            "CVCasteloBranco.jpg", "ETEPA.png", "fitness_up.jpg", "FPF.jpg",
+            "Green Goji.jpg", "Grupo Your.jpg", "HC.png", "Herdade Escrivao.jpg",
+            "HVC.png", "interfire.jpg", "introsys.png", "latitudde.png",
+            "Lead4B.jpg", "macdonalds.jpg", "Mecalbi.jpg", "Mercado das viagens.jpg",
+            "Morgado.jpg", "Moving People.jpg", "navigator.jpg", "OIP.jpg",
+            "Ordem Engenheiros.jpg", "Presuntos Rodrigues.png", "print2you.png",
+            "Quinta da Aamendoeira.jpg", "Quita Termos.png", "readinessIT.png", "ritain io.png",
+            "Scheibers.jpg", "SCMCB.bmp", "semente viva.png", "sonae.jpg",
+            "tangivel.png", "Territorios Criativos.jpg", "Twintex.png", "ULS.jpg", "uniovo.jpg",
+            "VetBeirao.jpg", "viriato.jpg", "visobeira.png", "vitorine.jpg", "wdretail.png"
         ];
 
         function criarLogosCompletos() {
@@ -431,7 +476,7 @@
                 card.className = `flex flex-col items-center p-4 bg-white/90 backdrop-blur-sm rounded-xl 
                                 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2
                                 group relative overflow-hidden h-32 shine-effect`;
-                
+
                 // Efeito de hover
                 card.innerHTML = `
                     <div class="absolute inset-0 bg-gradient-to-br from-blue-50 to-white opacity-0 
@@ -481,9 +526,59 @@
             });
         }
 
+        // Lista de patrocínios
+        const patrocinios = [
+            "Clinica marques dos santos.jpg",
+            "Dom Vitorine.jpg",
+            "GreenGoji.png",
+            "herdade Escrivao.jpg",
+            "Marcado viagens.jpg",
+            "Ordem engenheiros RC.jpg"
+        ];
+
+        function criarLogosPatrocinios() {
+            const container = document.getElementById('patrocinios-container');
+            if (!container) return;
+
+            patrocinios.forEach((patrocinio, index) => {
+                const card = document.createElement('div');
+                card.className = `flex flex-col items-center p-4 bg-white/90 backdrop-blur-sm rounded-xl 
+                                shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2
+                                group relative overflow-hidden h-32 shine-effect`;
+
+                card.innerHTML = `
+                    <div class="absolute inset-0 bg-gradient-to-br from-blue-50 to-white opacity-0 
+                              group-hover:opacity-100 transition-opacity duration-300 z-0"></div>
+                    <div class="relative z-10 flex flex-col items-center justify-center h-full">
+                        <img src="/site_feiraEmprego_IPCB/images/patrocinios/${patrocinio}" 
+                             alt="${patrocinio.split('.')[0]}" 
+                             class="max-h-12 w-auto object-contain grayscale hover:grayscale-0 
+                                    transition-all duration-300">
+                        <span class="text-xs text-gray-600 mt-2 opacity-0 group-hover:opacity-100 
+                                   transition-opacity duration-300 text-center">
+                            ${patrocinio.split('.')[0]}
+                        </span>
+                    </div>
+                `;
+
+                // /site_feiraEmprego_IPCB/images/patrocinios/${patrocinio}
+                // ../images/patrocinios/${patrocinio}
+
+                const img = card.querySelector('img');
+                img.onerror = function () {
+                    this.style.display = 'none';
+                    card.querySelector('span').classList.remove('opacity-0');
+                    card.querySelector('span').classList.add('text-red-500');
+                };
+
+                container.appendChild(card);
+            });
+        }
+
         // Inicialização
         window.addEventListener('DOMContentLoaded', () => {
             criarLogosCompletos();
+            criarLogosPatrocinios();
             observarScroll();
             observeElements();
         });
