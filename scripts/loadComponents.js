@@ -46,6 +46,7 @@ function loadPageComponents() {
     // Carregar navegação primeiro
     loadComponent('navigation', `${basePath}components/navigation.html`)
         .then(() => {
+            // Inicializar menu mobile após carregamento
             if (typeof initMenu === 'function') {
                 initMenu();
                 setActiveLink();
@@ -56,7 +57,7 @@ function loadPageComponents() {
     loadComponent('footer', `${basePath}components/footer.html`);
 
     // Página inicial
-    if (path === '/' || path.endsWith('index.html') || path === '') {
+    if (path.endsWith('index.html') || path.endsWith('/')) {
         Promise.all([
             loadComponent('banner', `${basePath}components/banner.html`),
             loadComponent('horizontalScroll', `${basePath}components/horizontalScroll.html`),
@@ -66,10 +67,9 @@ function loadPageComponents() {
             loadComponent('patrocinios', `${basePath}components/patrocinios.html`),
             loadComponent('localizacao', `${basePath}components/localizacao.html`)
         ]).then(() => {
+            // Inicializar sliders após todos os scripts estarem prontos
             if (typeof initSlider === 'function') initSlider();
             if (typeof initEmpresas === 'function') initEmpresas();
-            // Forçar a reinicialização dos patrocínios
-            if (typeof criarLogosPatrocinios === 'function') criarLogosPatrocinios();
         });
     }
 
